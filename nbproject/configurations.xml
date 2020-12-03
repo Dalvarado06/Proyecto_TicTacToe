@@ -4,6 +4,11 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>CharMatrix.h</itemPath>
+      <itemPath>GameBoard.h</itemPath>
+      <itemPath>Player.h</itemPath>
+      <itemPath>PlayerHumano.h</itemPath>
+      <itemPath>SymCharMatrix.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,6 +17,11 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>CharMatrix.cpp</itemPath>
+      <itemPath>GameBoard.cpp</itemPath>
+      <itemPath>Player.cpp</itemPath>
+      <itemPath>PlayerHumano.cpp</itemPath>
+      <itemPath>SymCharMatrix.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -36,6 +46,26 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="CharMatrix.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CharMatrix.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameBoard.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GameBoard.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PlayerHumano.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PlayerHumano.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SymCharMatrix.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SymCharMatrix.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -59,6 +89,26 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="CharMatrix.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CharMatrix.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GameBoard.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GameBoard.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PlayerHumano.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PlayerHumano.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SymCharMatrix.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SymCharMatrix.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>

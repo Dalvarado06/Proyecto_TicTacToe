@@ -12,6 +12,9 @@
  */
 
 #include <cstdlib>
+#include <iostream>
+#include "GameBoard.h"
+#include "Player.h"
 
 using namespace std;
 
@@ -20,6 +23,14 @@ using namespace std;
  */
 int main(int argc, char** argv) {
 
+    GameBoard* juego;
+    
+    juego = new GameBoard();
+    
+    juego->getTablero()->printMatrix();
+    
+    delete juego;
+    
     return 0;
 }
 
