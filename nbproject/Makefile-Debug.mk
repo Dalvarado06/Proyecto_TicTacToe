@@ -37,7 +37,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/CharMatrix.o \
 	${OBJECTDIR}/GameBoard.o \
+	${OBJECTDIR}/Juego.o \
+	${OBJECTDIR}/Mark.o \
 	${OBJECTDIR}/Player.o \
+	${OBJECTDIR}/PlayerCPU.o \
 	${OBJECTDIR}/PlayerHumano.o \
 	${OBJECTDIR}/SymCharMatrix.o \
 	${OBJECTDIR}/main.o
@@ -77,10 +80,25 @@ ${OBJECTDIR}/GameBoard.o: GameBoard.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GameBoard.o GameBoard.cpp
 
+${OBJECTDIR}/Juego.o: Juego.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Juego.o Juego.cpp
+
+${OBJECTDIR}/Mark.o: Mark.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Mark.o Mark.cpp
+
 ${OBJECTDIR}/Player.o: Player.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Player.o Player.cpp
+
+${OBJECTDIR}/PlayerCPU.o: PlayerCPU.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PlayerCPU.o PlayerCPU.cpp
 
 ${OBJECTDIR}/PlayerHumano.o: PlayerHumano.cpp
 	${MKDIR} -p ${OBJECTDIR}

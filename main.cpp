@@ -15,6 +15,10 @@
 #include <iostream>
 #include "GameBoard.h"
 #include "Player.h"
+#include "PlayerHumano.h"
+#include "PlayerCPU.h"
+#include "Mark.h"
+#include "Juego.h"
 
 using namespace std;
 
@@ -23,13 +27,21 @@ using namespace std;
  */
 int main(int argc, char** argv) {
 
-    GameBoard* juego;
+    Player* jugador1 = new PlayerHumano("Daniel");
+    Player* maquina = new PlayerCPU();
     
-    juego = new GameBoard();
+    Juego* ticTacToe = new Juego();
     
-    juego->getTablero()->printMatrix();
+    cout << jugador1->getMarca() << " " << maquina->getMarca() << endl << endl;
     
-    delete juego;
+    ticTacToe->randMark(jugador1, maquina);
+    
+    cout << jugador1->getMarca() << " " << maquina->getMarca() << endl << endl;
+    
+    delete jugador1;
+    delete maquina;
+    delete ticTacToe;
+    
     
     return 0;
 }

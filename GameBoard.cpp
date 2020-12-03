@@ -23,6 +23,7 @@ GameBoard::GameBoard(const GameBoard& orig) {
 }
 
 GameBoard::~GameBoard() {
+    delete tablero;
 }
 
  //regresa el tablero del juego

@@ -15,6 +15,9 @@
 #include "Player.h"
 
 PlayerHumano::PlayerHumano() {
+    this->nombre = "";
+    this->marca = '.';
+    this->puntuacion = 0;
 }
 
 PlayerHumano::PlayerHumano(const PlayerHumano& orig) {

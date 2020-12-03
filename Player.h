@@ -42,7 +42,7 @@ public:
     
     char getMarca();
     
-private:
+protected:
     string nombre;
     int puntuacion;
     char marca;

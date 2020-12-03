@@ -6,7 +6,10 @@
                    projectFiles="true">
       <itemPath>CharMatrix.h</itemPath>
       <itemPath>GameBoard.h</itemPath>
+      <itemPath>Juego.h</itemPath>
+      <itemPath>Mark.h</itemPath>
       <itemPath>Player.h</itemPath>
+      <itemPath>PlayerCPU.h</itemPath>
       <itemPath>PlayerHumano.h</itemPath>
       <itemPath>SymCharMatrix.h</itemPath>
     </logicalFolder>
@@ -19,7 +22,10 @@
                    projectFiles="true">
       <itemPath>CharMatrix.cpp</itemPath>
       <itemPath>GameBoard.cpp</itemPath>
+      <itemPath>Juego.cpp</itemPath>
+      <itemPath>Mark.cpp</itemPath>
       <itemPath>Player.cpp</itemPath>
+      <itemPath>PlayerCPU.cpp</itemPath>
       <itemPath>PlayerHumano.cpp</itemPath>
       <itemPath>SymCharMatrix.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -54,9 +60,21 @@
       </item>
       <item path="GameBoard.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Juego.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Juego.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Mark.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Mark.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Player.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PlayerCPU.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PlayerCPU.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="PlayerHumano.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -97,9 +115,21 @@
       </item>
       <item path="GameBoard.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Juego.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Juego.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Mark.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Mark.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Player.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PlayerCPU.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PlayerCPU.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="PlayerHumano.cpp" ex="false" tool="1" flavor2="0">
       </item>
