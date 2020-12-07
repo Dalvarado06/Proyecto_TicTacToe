@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/AdminJugadores.o \
 	${OBJECTDIR}/CharMatrix.o \
 	${OBJECTDIR}/GameBoard.o \
 	${OBJECTDIR}/Juego.o \
@@ -70,6 +71,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tictactoe_12011159.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tictactoe_12011159 ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/AdminJugadores.o: AdminJugadores.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/AdminJugadores.o AdminJugadores.cpp
 
 ${OBJECTDIR}/CharMatrix.o: CharMatrix.cpp
 	${MKDIR} -p ${OBJECTDIR}

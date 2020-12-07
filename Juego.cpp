@@ -25,7 +25,7 @@ Juego::Juego(const Juego& orig) {
 }
 
 Juego::~Juego() {
-    delete tablero;
+    
 }
 
 void Juego::randMark(Player*& jugador1, Player*& jugador2) {
@@ -46,7 +46,7 @@ void Juego::randMark(Player*& jugador1, Player*& jugador2) {
 
     } else {
         jugador1->setMarca('0');
-        jugador2->setMarca('x');
+        jugador2->setMarca('X');
     }
 }
 
@@ -111,7 +111,7 @@ bool Juego::validarGanador(char marcaJugador) {
 
 bool Juego::validarMovimiento(int fila, int columna){
     
-    if(fila < 1 || fila > 3 || columna < 1 || columna > 3){
+    if(fila < 0 || fila > 2 || columna < 0 || columna > 2){
         return false;
     
     }else{
