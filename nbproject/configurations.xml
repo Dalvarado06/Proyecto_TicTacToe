@@ -7,6 +7,7 @@
       <itemPath>CharMatrix.h</itemPath>
       <itemPath>GameBoard.h</itemPath>
       <itemPath>Juego.h</itemPath>
+      <itemPath>JuegoPvP.h</itemPath>
       <itemPath>Mark.h</itemPath>
       <itemPath>Player.h</itemPath>
       <itemPath>PlayerCPU.h</itemPath>
@@ -23,6 +24,7 @@
       <itemPath>CharMatrix.cpp</itemPath>
       <itemPath>GameBoard.cpp</itemPath>
       <itemPath>Juego.cpp</itemPath>
+      <itemPath>JuegoPvP.cpp</itemPath>
       <itemPath>Mark.cpp</itemPath>
       <itemPath>Player.cpp</itemPath>
       <itemPath>PlayerCPU.cpp</itemPath>
@@ -63,6 +65,10 @@
       <item path="Juego.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Juego.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="JuegoPvP.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="JuegoPvP.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Mark.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -118,6 +124,10 @@
       <item path="Juego.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Juego.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="JuegoPvP.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="JuegoPvP.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Mark.cpp" ex="false" tool="1" flavor2="0">
       </item>

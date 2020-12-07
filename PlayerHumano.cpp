@@ -20,7 +20,10 @@ PlayerHumano::PlayerHumano() {
     this->puntuacion = 0;
 }
 
-PlayerHumano::PlayerHumano(const PlayerHumano& orig) {
+PlayerHumano::PlayerHumano(const PlayerHumano*& orig) {
+    this->nombre = orig->nombre;
+    this->marca = orig->marca;
+    this->puntuacion = orig->puntuacion;
 }
 
 PlayerHumano::~PlayerHumano() {

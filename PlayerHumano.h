@@ -21,7 +21,7 @@ public:
     //Constructor
     PlayerHumano();
     //Copia
-    PlayerHumano(const PlayerHumano& orig);
+    PlayerHumano(const PlayerHumano*& orig);
     //Destructor
     virtual ~PlayerHumano();
     //constructor SobreCargado

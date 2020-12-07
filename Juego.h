@@ -30,9 +30,13 @@ public:
     void randMark(Player*&, Player*&);
     
     //Metodo abstracto puro
-    //virtual void initGame() = 0;
+    virtual void initGame(Player*&, Player*&);
     
-private:
+    bool validarGanador(char);
+    
+    bool validarMovimiento(int, int);
+    
+protected:
     GameBoard* tablero;
     int numJugadas;
 };

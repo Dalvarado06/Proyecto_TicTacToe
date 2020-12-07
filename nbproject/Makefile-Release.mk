@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/CharMatrix.o \
 	${OBJECTDIR}/GameBoard.o \
 	${OBJECTDIR}/Juego.o \
+	${OBJECTDIR}/JuegoPvP.o \
 	${OBJECTDIR}/Mark.o \
 	${OBJECTDIR}/Player.o \
 	${OBJECTDIR}/PlayerCPU.o \
@@ -84,6 +85,11 @@ ${OBJECTDIR}/Juego.o: Juego.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Juego.o Juego.cpp
+
+${OBJECTDIR}/JuegoPvP.o: JuegoPvP.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/JuegoPvP.o JuegoPvP.cpp
 
 ${OBJECTDIR}/Mark.o: Mark.cpp
 	${MKDIR} -p ${OBJECTDIR}
