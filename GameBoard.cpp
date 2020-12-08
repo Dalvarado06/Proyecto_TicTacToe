@@ -14,8 +14,8 @@
 #include "GameBoard.h"
 
 GameBoard::GameBoard() {
-    tablero = 0;
-    tablero = new SymCharMatrix(3);
+    tablero = new SymCharMatrix();
+    tablero->createMatrix(3,3);
     tablero->initMatrix();
 }
 
@@ -23,10 +23,14 @@ GameBoard::GameBoard(const GameBoard& orig) {
 }
 
 GameBoard::~GameBoard() {
-    delete tablero;
 }
 
+void GameBoard::initTablero(){
+    tablero->createMatrix(3,3);
+    tablero->initMatrix();
+}
  //regresa el tablero del juego
 SymCharMatrix* GameBoard::getTablero(){
     return tablero;
 }
+

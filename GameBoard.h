@@ -28,6 +28,8 @@ public:
     //regresa el tablero del juego
     SymCharMatrix* getTablero();
     
+    void initTablero();
+    
 private:
     
     SymCharMatrix* tablero;

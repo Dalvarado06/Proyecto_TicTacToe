@@ -14,12 +14,16 @@
 #include "JuegoPvP.h"
 #include "PlayerHumano.h"
 #include <iostream>
+#include "HistorialJugadas.h"
 
 using std::cout;
 using std::endl;
 using std::cin;
 
 JuegoPvP::JuegoPvP() : Juego() {
+    tablero = 0;
+    tablero = new GameBoard();
+    numJugadas = 0;
 }
 
 JuegoPvP::JuegoPvP(const JuegoPvP& orig) {
@@ -37,7 +41,7 @@ void JuegoPvP::initGame(Player* &jugador1, Player* &jugador2) {
                 << endl << endl;
 
         bool flag = true;
-
+        HistorialJugadas historial;
 
         cout << "El juego ha comenzado: " << endl << endl;
 
@@ -77,12 +81,12 @@ void JuegoPvP::initGame(Player* &jugador1, Player* &jugador2) {
 
             tablero->getTablero()->setPosValueMatrix(fila - 1, columna - 1, jugador1->getMarca());
             numJugadas = numJugadas + 1;
-
+            historial.agregarJugada(tablero->getTablero());
 
             bool gano = validarGanador(jugador1->getMarca());
 
             if (gano) {
-                cout << "El jugador " << jugador1->getNombre() << "gano" << endl;
+                cout << "El jugador " << jugador1->getNombre() << " gano" << endl;
                 flag = false;
                 int score = jugador1->getPuntuacion() + 1;
                 jugador1->setPuntuacion(score);
@@ -119,6 +123,7 @@ void JuegoPvP::initGame(Player* &jugador1, Player* &jugador2) {
 
                 tablero->getTablero()->setPosValueMatrix(fila - 1, columna - 1, jugador2->getMarca());
                 numJugadas = numJugadas + 1;
+                historial.agregarJugada(tablero->getTablero());
 
                 bool gano = validarGanador(jugador2->getMarca());
 
@@ -132,6 +137,18 @@ void JuegoPvP::initGame(Player* &jugador1, Player* &jugador2) {
             }
 
         }
+        if (flag == false && numJugadas == 9) {
+            cout << "El juego termino en empate" << endl << endl;
+        }
+
+        int confirm = 0;
+        cout << "Desea Mostrar el historial de jugadas? si : 1  :";
+        cin >> confirm;
+        cout << endl;
+
+        if (confirm == 1) {
+            historial.mostrarHistorial();
+        }
 
     } else {
         cout << "El jugador " << jugador2->getNombre() << " juega primero"
@@ -139,7 +156,7 @@ void JuegoPvP::initGame(Player* &jugador1, Player* &jugador2) {
 
 
         bool flag = true;
-
+        HistorialJugadas historial;
 
         cout << "El juego ha comenzado: " << endl << endl;
 
@@ -148,7 +165,7 @@ void JuegoPvP::initGame(Player* &jugador1, Player* &jugador2) {
         numJugadas = 0;
 
 
-        while (flag && numJugadas  <= 9) {
+        while (flag && numJugadas <= 9) {
 
             cout << "El tablero esta asi: " << endl << endl;
             tablero->getTablero()->printMatrix();
@@ -180,17 +197,18 @@ void JuegoPvP::initGame(Player* &jugador1, Player* &jugador2) {
 
             tablero->getTablero()->setPosValueMatrix(fila - 1, columna - 1, jugador2->getMarca());
             numJugadas = numJugadas + 1;
+            historial.agregarJugada(tablero->getTablero());
 
             bool gano = validarGanador(jugador2->getMarca());
 
             if (gano) {
                 flag = false;
-                cout << "El jugador " << jugador2->getNombre() << "gano" << endl;
+                cout << "El jugador " << jugador2->getNombre() << " gano" << endl;
                 int score = jugador2->getPuntuacion() + 1;
                 jugador2->setPuntuacion(score);
 
             } else {
-                
+
                 cout << "El tablero esta asi: " << endl << endl;
                 tablero->getTablero()->printMatrix();
 
@@ -219,6 +237,7 @@ void JuegoPvP::initGame(Player* &jugador1, Player* &jugador2) {
 
                 tablero->getTablero()->setPosValueMatrix(fila - 1, columna - 1, jugador1->getMarca());
                 numJugadas = numJugadas + 1;
+                historial.agregarJugada(tablero->getTablero());
 
                 bool gano = validarGanador(jugador1->getMarca());
 
@@ -232,7 +251,21 @@ void JuegoPvP::initGame(Player* &jugador1, Player* &jugador2) {
             }
         }
 
+        if (flag == false && numJugadas == 9) {
+            cout << "El juego termino en empate" << endl << endl;
+        }
+
+        int confirm = 0;
+        cout << "Desea Mostrar el historial de jugadas? si : 1  :";\
+        cin >> confirm;
+        cout << endl;
+
+        if (confirm == 1) {
+            historial.mostrarHistorial();
+        }
+
     }
 
+    cout << "Delete tablero" << endl;
     delete tablero;
 }

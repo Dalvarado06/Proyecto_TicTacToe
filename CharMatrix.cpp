@@ -29,6 +29,14 @@ CharMatrix::CharMatrix(int pFilas, int pColumnas){
 }
 
 CharMatrix::CharMatrix(const CharMatrix& orig) {
+    this->filas = orig.filas;
+    this->columnas = orig.columnas;
+    
+    for(int i = 0; i < this->filas; i++){
+        for(int j = 0; j < this->columnas; j++){
+            this->matrix[i][j] = orig.matrix[i][j];
+        }
+    }
 }
 
 CharMatrix::~CharMatrix() {

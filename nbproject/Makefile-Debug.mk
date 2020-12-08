@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/AdminJugadores.o \
 	${OBJECTDIR}/CharMatrix.o \
 	${OBJECTDIR}/GameBoard.o \
+	${OBJECTDIR}/HistorialJugadas.o \
 	${OBJECTDIR}/Juego.o \
 	${OBJECTDIR}/JuegoPvP.o \
 	${OBJECTDIR}/Mark.o \
@@ -86,6 +87,11 @@ ${OBJECTDIR}/GameBoard.o: GameBoard.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GameBoard.o GameBoard.cpp
+
+${OBJECTDIR}/HistorialJugadas.o: HistorialJugadas.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HistorialJugadas.o HistorialJugadas.cpp
 
 ${OBJECTDIR}/Juego.o: Juego.cpp
 	${MKDIR} -p ${OBJECTDIR}

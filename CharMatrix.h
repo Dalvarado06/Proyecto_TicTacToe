@@ -42,7 +42,7 @@ public:
     void printMatrix();
     
 
-private:
+protected:
     char** matrix;
     int filas;
     int columnas;

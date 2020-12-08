@@ -14,9 +14,19 @@
 #include "SymCharMatrix.h"
 
 SymCharMatrix::SymCharMatrix() : CharMatrix() {
+    
 }
 
-SymCharMatrix::SymCharMatrix(const SymCharMatrix& orig) {
+SymCharMatrix::SymCharMatrix(const SymCharMatrix &orig) {
+    this->createMatrix(3,3);
+    this->initMatrix();
+    
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; i++){
+            this->matrix[i][j] = orig.matrix[i][j];
+        }
+    }
+    
 }
 
 SymCharMatrix::~SymCharMatrix() {
