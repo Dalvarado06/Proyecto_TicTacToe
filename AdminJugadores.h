@@ -32,9 +32,9 @@ public:
     
     virtual ~AdminJugadores();
     
-    vector<Player*> leerJugadores();
+    vector<PlayerHumano*> leerJugadores();
     
-    void guardarJugadores(vector<Player*>);
+    void guardarJugadores(vector<PlayerHumano*>);
     
     
 private:

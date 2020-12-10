@@ -27,7 +27,7 @@ AdminJugadores::AdminJugadores(const AdminJugadores& orig) {
 AdminJugadores::~AdminJugadores() {
 }
 
-void AdminJugadores::guardarJugadores(vector<Player*> lista){
+void AdminJugadores::guardarJugadores(vector<PlayerHumano*> lista){
     
     ofstream outPut;
     
@@ -48,10 +48,10 @@ void AdminJugadores::guardarJugadores(vector<Player*> lista){
     outPut.close();
 }
 
-vector<Player*> AdminJugadores::leerJugadores(){
+vector<PlayerHumano*> AdminJugadores::leerJugadores(){
     
     ifstream input;
-    vector<Player*> listaJugadores;
+    vector<PlayerHumano*> listaJugadores;
     
     input.open("jugadoresTicTacToe.txt");
     
@@ -62,7 +62,7 @@ vector<Player*> AdminJugadores::leerJugadores(){
         
         while(getline(input, buffer)){          
             
-            Player* p = new PlayerHumano(buffer);
+            PlayerHumano* p = new PlayerHumano(buffer);
             
             listaJugadores.push_back(p);
             

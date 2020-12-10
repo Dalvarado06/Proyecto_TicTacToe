@@ -17,6 +17,8 @@
 #include "GameBoard.h"
 #include "Player.h"
 
+class GuardarPvP;
+
 class Juego {
 public:
     //Constructor
@@ -29,16 +31,23 @@ public:
     //Con Random decide los turnos del juego
     void randMark(Player*&, Player*&);
     
-    //Metodo abstracto puro
-    virtual void initGame(Player*&, Player*&);
+    //Metodo abstracto
+    virtual void initGame();
     
     bool validarGanador(char);
     
     bool validarMovimiento(int, int);
     
+    void setNumJugadas(int);
+    
+    virtual void reInitGame();
+    
 protected:
     GameBoard* tablero;
     int numJugadas;
+    Player* jugador1;
+    Player* jugador2;
+    friend class GuardarPvP;
 };
 
 #endif /* JUEGO_H */

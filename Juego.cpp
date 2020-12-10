@@ -50,7 +50,7 @@ void Juego::randMark(Player*& jugador1, Player*& jugador2) {
     }
 }
 
-void Juego::initGame(Player*&jugador1, Player* &jugador2) {
+void Juego::initGame() {
 
 }
 
@@ -124,4 +124,12 @@ bool Juego::validarMovimiento(int fila, int columna){
             return true;
         }
     }
+}
+
+void Juego::setNumJugadas(int numJugadas){
+    this->numJugadas = numJugadas;
+}
+
+void Juego::reInitGame(){
+    
 }

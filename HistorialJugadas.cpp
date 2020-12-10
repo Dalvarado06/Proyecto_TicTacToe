@@ -25,6 +25,7 @@ HistorialJugadas::HistorialJugadas(const HistorialJugadas& orig) {
 }
 
 HistorialJugadas::~HistorialJugadas() {
+    borrarHistorial();
 }
 
 void HistorialJugadas::mostrarHistorial() {
@@ -58,7 +59,28 @@ void HistorialJugadas::mostrarHistorial() {
 }
 
 void HistorialJugadas::agregarJugada(CharMatrix* board) {
-    CharMatrix* tablero = board;
+    CharMatrix* tablero = new CharMatrix();
+    
+    tablero->createMatrix(3,3);
+    tablero->initMatrix();
+    
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            char c = board->getPosValueMatrix(i,j);
+            
+            tablero->setPosValueMatrix(i,j,c);
+        }
+    }
 
     historial.push_back(tablero);
+}
+
+void HistorialJugadas::borrarHistorial(){
+    
+    for(int i = 0; i < historial.size(); i++){
+        historial[i] = 0;
+        delete historial[i];
+    }
+    
+    historial.clear();
 }

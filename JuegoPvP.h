@@ -16,23 +16,26 @@
 
 #include "Juego.h"
 #include "PlayerHumano.h"
+#include "GuardarPvP.h"
 
 class JuegoPvP : public Juego{
 public:
     JuegoPvP();
     
-    JuegoPVP();
+    JuegoPVP(Player*, Player*);
     
     JuegoPvP(const JuegoPvP& orig);
     
     virtual ~JuegoPvP();
     
-    virtual void initGame(Player*&, Player*&); 
+    virtual void initGame();
     
-    //void setPlayers(PlayerHumano*, PlayerHumano*);
+    void setPlayers(Player*, Player*);
+    
+    virtual void reInitGame();
     
 private:
-    
+   
 };
 
 #endif /* JUEGOPVP_H */

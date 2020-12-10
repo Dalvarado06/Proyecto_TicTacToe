@@ -22,19 +22,22 @@
 #include "Juego.h"
 #include "AdminJugadores.h"
 #include "JuegoPvP.h"
+#include "GuardarPvP.h"
 
 using namespace std;
 
 int menu();
-void listarJugadores(vector<Player*>&);
-void freeVector(vector<Player*>&);
+void listarJugadores(vector<PlayerHumano*>&);
+void freeVector(vector<PlayerHumano*>&);
+//void resumirJugadorvsJugador();
+//void resumirJugadorvsCpu();
 
 /*
  * 
  */
 int main(int argc, char** argv) {
 
-    vector<Player*> jugadoresRegistrados;
+    vector<PlayerHumano*> jugadoresRegistrados;
 
 
     //    Player* jugador1 = new PlayerHumano("Daniel");
@@ -53,8 +56,6 @@ int main(int argc, char** argv) {
     //    delete ticTacToe;
 
     AdminJugadores adminJugadores;
-
-    jugadoresRegistrados = adminJugadores.leerJugadores();
 
     int opcion = 0;
 
@@ -75,11 +76,11 @@ int main(int argc, char** argv) {
 
                 Player* p = new PlayerHumano(nombre);
 
-                jugadoresRegistrados = adminJugadores.leerJugadores();
-
-                jugadoresRegistrados.push_back(p);
-
-                adminJugadores.guardarJugadores(jugadoresRegistrados);
+//                jugadoresRegistrados = adminJugadores.leerJugadores();
+//
+//                jugadoresRegistrados.push_back(p);
+//
+//                adminJugadores.guardarJugadores(jugadoresRegistrados);
 
                 cout << "El ingreso ha sido completado" << endl << endl;
 
@@ -108,7 +109,7 @@ int main(int argc, char** argv) {
                     cin >> indice;
                     cout << endl;
 
-                    while (indice < 0) {
+                    while (indice <= 0) {
                         cout << "Elija al primero: ";
                         cin >> indice;
                         cout << endl;
@@ -118,16 +119,20 @@ int main(int argc, char** argv) {
                     cin >> indice2;
                     cout << endl;
 
-                    while (indice2 < 0) {
+                    while (indice2 <= 0) {
                         cout << "Elija al segundo: ";
                         cin >> indice2;
                         cout << endl;
                     }
                     
-                    Juego* ticTacToe = new JuegoPvP();
+                    PlayerHumano* p1 = jugadoresRegistrados[indice-1];
+                    PlayerHumano* p2 = jugadoresRegistrados[indice2-1];
                     
-                    ticTacToe->initGame(jugadoresRegistrados[indice-1],
-                            jugadoresRegistrados[indice2-1]);
+                    JuegoPvP* ticTacToe = new JuegoPvP();
+                    
+                    ticTacToe->setPlayers(p1, p2);
+                    
+                    ticTacToe->initGame();
                     
                     
                     
@@ -148,6 +153,52 @@ int main(int argc, char** argv) {
             }
             case 4:
             {
+                cout << "Resumir Ultima partida" << endl << endl;
+                
+                int opcion = 0;
+                
+                while(opcion != 3){
+                    
+                    cout << "------MENU PARTIDAS------" << endl
+                         << "1. Resumir ultimo PvP" << endl
+                         << "2. Resumir ultimo Player vs CPU" << endl
+                         << "3. Salir" << endl
+                         << "Elija su opcion: ";
+                    
+                    cin >> opcion;
+                    cout << endl;
+                    
+                    switch(opcion){
+                        
+                        case 1:{
+                            cout << "Resumir ultimo PVP" << endl << endl; 
+                            
+                            Juego* game;
+                            GuardarPvP leerPartida;
+                            
+                            game = leerPartida.cargarPartida();
+                            
+                            if(game != NULL){
+                                
+                            }else{
+                                cout << "Hubo un error al cargar la partida"
+                                        << endl << endl;
+                            }
+                        }
+                        
+                        case 2:{
+                            
+                        }
+                        
+                        case 3:{
+                            cout << "Saliendo al menu Principal..." << endl;
+                            break;
+                        }
+                        
+                        default:
+                            cout << "Su opcion es incorrecta..." << endl << endl;
+                    }
+                }
 
                 break;
 
@@ -190,7 +241,7 @@ int menu() {
     return opcion;
 }
 
-void listarJugadores(vector<Player*> &lista) {
+void listarJugadores(vector<PlayerHumano*> &lista) {
 
     for (int i = 0; i < lista.size(); i++) {
 
@@ -201,7 +252,7 @@ void listarJugadores(vector<Player*> &lista) {
     cout << endl << endl;
 }
 
-void freeVector(vector<Player*> &lista){
+void freeVector(vector<PlayerHumano*> &lista){
     
     for(int i = 0; i < lista.size(); i++){
         

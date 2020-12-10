@@ -7,6 +7,8 @@
       <itemPath>AdminJugadores.h</itemPath>
       <itemPath>CharMatrix.h</itemPath>
       <itemPath>GameBoard.h</itemPath>
+      <itemPath>GuardarPartida.h</itemPath>
+      <itemPath>GuardarPvP.h</itemPath>
       <itemPath>HistorialJugadas.h</itemPath>
       <itemPath>Juego.h</itemPath>
       <itemPath>JuegoPvP.h</itemPath>
@@ -26,6 +28,8 @@
       <itemPath>AdminJugadores.cpp</itemPath>
       <itemPath>CharMatrix.cpp</itemPath>
       <itemPath>GameBoard.cpp</itemPath>
+      <itemPath>GuardarPartida.cpp</itemPath>
+      <itemPath>GuardarPvP.cpp</itemPath>
       <itemPath>HistorialJugadas.cpp</itemPath>
       <itemPath>Juego.cpp</itemPath>
       <itemPath>JuegoPvP.cpp</itemPath>
@@ -69,6 +73,14 @@
       <item path="GameBoard.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="GameBoard.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GuardarPartida.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GuardarPartida.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GuardarPvP.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GuardarPvP.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="HistorialJugadas.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -136,6 +148,14 @@
       <item path="GameBoard.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="GameBoard.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GuardarPartida.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GuardarPartida.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GuardarPvP.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GuardarPvP.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="HistorialJugadas.cpp" ex="false" tool="1" flavor2="0">
       </item>

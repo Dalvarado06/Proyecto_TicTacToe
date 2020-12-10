@@ -54,3 +54,9 @@ void Player::setMarca(char marca){
 char Player::getMarca(){
     return marca;
 }
+
+void Player::operator=(const Player& orig){
+    this->nombre = orig.nombre;
+    this->marca = orig.marca;
+    this->puntuacion = orig.puntuacion;
+}

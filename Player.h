@@ -42,6 +42,8 @@ public:
     
     char getMarca();
     
+    void operator=(const Player& orig);
+    
 protected:
     string nombre;
     int puntuacion;
