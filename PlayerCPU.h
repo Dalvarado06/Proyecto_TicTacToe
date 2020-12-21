@@ -28,15 +28,13 @@ public:
     virtual ~PlayerCPU();
     
     //metodos de validacion
-    bool defensaHorizontal(GameBoard*);
-    bool defensaVertical(GameBoard*);
+    bool validarTablero(string, char); 
     
-    bool ataqueHorizontal(GameBoard*);
-    bool ataqueVertical(GameBoard*);
+   
     
    //Toma de decisiones
-    Mark defendiendo(GameBoard*);
-    Mark atacando(GameBoard*);
+    Mark defendiendo(string, char);
+    Mark atacando(string, char);
     
     
 private:

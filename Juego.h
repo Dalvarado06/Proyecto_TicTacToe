@@ -16,6 +16,8 @@
 
 #include "GameBoard.h"
 #include "Player.h"
+#include <vector>
+using std::vector;
 
 class GuardarPvP;
 

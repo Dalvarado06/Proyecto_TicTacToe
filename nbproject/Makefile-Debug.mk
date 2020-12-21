@@ -40,8 +40,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/GameBoard.o \
 	${OBJECTDIR}/GuardarPartida.o \
 	${OBJECTDIR}/GuardarPvP.o \
+	${OBJECTDIR}/GuardarVsCpu.o \
 	${OBJECTDIR}/HistorialJugadas.o \
 	${OBJECTDIR}/Juego.o \
+	${OBJECTDIR}/JuegoCpu.o \
 	${OBJECTDIR}/JuegoPvP.o \
 	${OBJECTDIR}/Mark.o \
 	${OBJECTDIR}/Player.o \
@@ -100,6 +102,11 @@ ${OBJECTDIR}/GuardarPvP.o: GuardarPvP.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GuardarPvP.o GuardarPvP.cpp
 
+${OBJECTDIR}/GuardarVsCpu.o: GuardarVsCpu.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GuardarVsCpu.o GuardarVsCpu.cpp
+
 ${OBJECTDIR}/HistorialJugadas.o: HistorialJugadas.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -109,6 +116,11 @@ ${OBJECTDIR}/Juego.o: Juego.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Juego.o Juego.cpp
+
+${OBJECTDIR}/JuegoCpu.o: JuegoCpu.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/JuegoCpu.o JuegoCpu.cpp
 
 ${OBJECTDIR}/JuegoPvP.o: JuegoPvP.cpp
 	${MKDIR} -p ${OBJECTDIR}

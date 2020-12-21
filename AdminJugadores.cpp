@@ -27,50 +27,61 @@ AdminJugadores::AdminJugadores(const AdminJugadores& orig) {
 AdminJugadores::~AdminJugadores() {
 }
 
-void AdminJugadores::guardarJugadores(vector<PlayerHumano*> lista){
-    
+void AdminJugadores::guardarJugadores(vector<PlayerHumano*> lista) {
+
     ofstream outPut;
-    
+
     outPut.open("jugadoresTicTacToe.txt", ofstream::out | ofstream::trunc);
-    
-    if(outPut.is_open()){
+
+    if (outPut.is_open()) {
         
-        for(int i = 0; i < lista.size(); i++){
-            
+        outPut << lista.size() << endl;
+        
+        for (int i = 0; i < lista.size(); i++) {
+
             Player* p = lista[i];
-            
+
             outPut << p->getNombre() << endl;
-            
+            outPut << p->getPuntuacion() << endl;
+
         }
-        
+
     }
-    
+
     outPut.close();
 }
 
-vector<PlayerHumano*> AdminJugadores::leerJugadores(){
-    
+vector<PlayerHumano*> AdminJugadores::leerJugadores() {
+
     ifstream input;
     vector<PlayerHumano*> listaJugadores;
-    
+
     input.open("jugadoresTicTacToe.txt");
-    
-    
-    if(input.is_open()){
-        
+
+
+    if (input.is_open()) {
+
         string buffer = "";
+        int punt = 0;
+        int size = 0;
         
-        while(getline(input, buffer)){          
+        input >> size;
+        
+        for(int i = 0; i < size; i++){
+            
+            input >> buffer;
+            input >> punt;
             
             PlayerHumano* p = new PlayerHumano(buffer);
-            
+            p->setPuntuacion(punt);
+
             listaJugadores.push_back(p);
-            
+
         }
     }
-    
+
     input.close();
-    
-    
+
+
     return listaJugadores;
 }

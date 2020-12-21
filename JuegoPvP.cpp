@@ -24,8 +24,8 @@ JuegoPvP::JuegoPvP() : Juego() {
     tablero = 0;
     tablero = new GameBoard();
     numJugadas = 0;
-    jugador1 = new PlayerHumano();
-    jugador2 = new PlayerHumano();
+//    jugador1 = new PlayerHumano();
+//    jugador2 = new PlayerHumano();
 }
 
 JuegoPvP::JuegoPvP(const JuegoPvP& orig) {
@@ -98,7 +98,7 @@ void JuegoPvP::initGame() {
                 int score = jugador1->getPuntuacion() + 1;
                 jugador1->setPuntuacion(score);
 
-            } else {
+            } else if(numJugadas < 9) {
 
                 cout << "-----> El tablero esta asi: " << endl << endl;
                 tablero->getTablero()->printMatrix();
@@ -226,7 +226,7 @@ void JuegoPvP::initGame() {
                 int score = jugador2->getPuntuacion() + 1;
                 jugador2->setPuntuacion(score);
 
-            } else {
+            } else if(numJugadas < 9){
 
                 cout << "-----> El tablero esta asi: " << endl << endl;
                 tablero->getTablero()->printMatrix();
@@ -360,7 +360,7 @@ void JuegoPvP::reInitGame(){
                 int score = jugador1->getPuntuacion() + 1;
                 jugador1->setPuntuacion(score);
 
-            } else {
+            } else if (numJugadas < 9){
 
                 cout << "-----> El tablero esta asi: " << endl << endl;
                 tablero->getTablero()->printMatrix();
@@ -488,7 +488,7 @@ void JuegoPvP::reInitGame(){
                 int score = jugador2->getPuntuacion() + 1;
                 jugador2->setPuntuacion(score);
 
-            } else {
+            } else if(numJugadas < 9){
 
                 cout << "-----> El tablero esta asi: " << endl << endl;
                 tablero->getTablero()->printMatrix();
@@ -555,6 +555,47 @@ void JuegoPvP::reInitGame(){
         if (confirm == 1) {
             historial.mostrarHistorial();
         }
+        
 
     }
+}
+
+void JuegoPvP::refreshPlayerStats(vector<PlayerHumano*> &lista){
+    
+    int size = lista.size();
+    bool flag = false;
+    bool flag2 = false;
+    
+    for(int i = 0; i < size; i++){
+        
+        PlayerHumano* p = lista[i];
+        
+        if(p->getNombre() == jugador1->getNombre()){
+            int score = jugador1->getPuntuacion();
+            lista[i]->setPuntuacion(score);
+            flag = true;
+        }
+        
+        if(p->getNombre() == jugador2->getNombre()){
+            int score = jugador2->getPuntuacion();
+            lista[i]->setPuntuacion(score);
+            flag2 = true;
+        }
+    }
+    
+    
+//    if(flag == false && flag2 == false){
+//        PlayerHumano* p1 = ((PlayerHumano)jugador1);
+//        PlayerHumano* p2 = ((PlayerHumano)jugador2)
+//        lista.push_back(p1);
+//        lista.push_back(p2);
+//    
+//    }else if(flag == false && flag2 == true){
+//        PlayerHumano* p1 = ((PlayerHumano)jugador1);
+//        lista.push_back(p1);
+//    
+//    }else{
+//        PlayerHumano* p2 = ((PlayerHumano)jugador2);
+//        lista.push_back(p2);
+//    }
 }

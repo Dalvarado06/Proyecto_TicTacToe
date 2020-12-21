@@ -18,6 +18,7 @@
 #include "PlayerHumano.h"
 #include "GuardarPvP.h"
 
+
 class JuegoPvP : public Juego{
 public:
     JuegoPvP();
@@ -28,11 +29,17 @@ public:
     
     virtual ~JuegoPvP();
     
+    //inicia un juego nuevo de tic tac toe
     virtual void initGame();
     
+    //setea los jugadores 
     void setPlayers(Player*, Player*);
     
+    //reinicializa un juego
     virtual void reInitGame();
+    
+    //restablece puntuciones de jugadores ya existentes o los agrega a la lista
+    void refreshPlayerStats(vector<PlayerHumano*>&);
     
 private:
    
