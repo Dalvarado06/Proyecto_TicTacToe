@@ -38,7 +38,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/AdminJugadores.o \
 	${OBJECTDIR}/CharMatrix.o \
 	${OBJECTDIR}/GameBoard.o \
-	${OBJECTDIR}/GuardarPartida.o \
 	${OBJECTDIR}/GuardarPvP.o \
 	${OBJECTDIR}/GuardarVsCpu.o \
 	${OBJECTDIR}/HistorialJugadas.o \
@@ -91,11 +90,6 @@ ${OBJECTDIR}/GameBoard.o: GameBoard.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GameBoard.o GameBoard.cpp
-
-${OBJECTDIR}/GuardarPartida.o: GuardarPartida.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GuardarPartida.o GuardarPartida.cpp
 
 ${OBJECTDIR}/GuardarPvP.o: GuardarPvP.cpp
 	${MKDIR} -p ${OBJECTDIR}

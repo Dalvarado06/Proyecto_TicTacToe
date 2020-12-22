@@ -21,6 +21,7 @@
 #include "Player.h"
 #include "HistorialJugadas.h"
 #include <iostream>
+#include "GuardarVsCpu.h"
 
 using std::cout;
 using std::endl;
@@ -42,6 +43,10 @@ public:
     virtual void reInitGame();
     
     void setPlayers(PlayerHumano*, PlayerCPU*);
+    
+    void actualizarPuntMaquina(PlayerCPU*&);
+    
+    void actualizarPuntJugador(vector<PlayerHumano*> &);
     
     string matrixToString(SymCharMatrix*);
 

@@ -14,21 +14,29 @@
 #ifndef GUARDARPVP_H
 #define GUARDARPVP_H
 
-#include "GuardarPartida.h"
 #include "PlayerHumano.h"
+#include "JuegoPvP.h"
+#include <fstream>
+#include <iostream>
+using std::endl;
+using std::ifstream;
+using std::ofstream;
 
-class GuardarPvP : public GuardarPartida {
+class JuegoPvP;
+
+class GuardarPvP {
 public:
     GuardarPvP();
 
     GuardarPvP(const GuardarPvP& orig);
 
-    virtual void guardarPartidaActual(GameBoard*, Player*, Player*, int);
+    void guardarPartidaActual(GameBoard*, Player*, Player*, int);
 
-    virtual Juego* cargarPartida();
+    JuegoPvP* cargarPartida();
     
 private:
-    
+    ifstream lecturaPartida;
+    ofstream salvarPartida;
 };
 
 #endif /* GUARDARPVP_H */

@@ -1,6 +1,6 @@
 build/Debug/Cygwin-Windows/JuegoPvP.o: JuegoPvP.cpp JuegoPvP.h Juego.h \
  GameBoard.h SymCharMatrix.h CharMatrix.h Player.h PlayerHumano.h \
- GuardarPvP.h GuardarPartida.h HistorialJugadas.h
+ GuardarPvP.h HistorialJugadas.h
 JuegoPvP.h:
 Juego.h:
 GameBoard.h:
@@ -9,5 +9,4 @@ CharMatrix.h:
 Player.h:
 PlayerHumano.h:
 GuardarPvP.h:
-GuardarPartida.h:
 HistorialJugadas.h:

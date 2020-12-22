@@ -312,6 +312,65 @@ Mark PlayerCPU::atacando(string tablero, char myMark) {
             marca.setFila(2);
             marca.setColumna(2);
             return marca;
+        
+        }else{
+            
+            int num = 1 + (rand() % 9);
+            
+            while(tablero[num-1] != '.'){
+                num = 1 + (rand() % 9);
+            }
+            
+            switch(num){
+                
+                case 1:{
+                    marca.setFila(0);
+                    marca.setColumna(0);
+                    break;
+                
+                }case 2:{
+                    marca.setFila(0);
+                    marca.setColumna(1);
+                    break;
+                
+                }case 3:{
+                    marca.setFila(0);
+                    marca.setColumna(2);
+                    break;
+                
+                }case 4:{
+                    marca.setFila(1);
+                    marca.setFila(0);
+                    break;
+                
+                }case 5:{
+                    marca.setFila(1);
+                    marca.setColumna(1);
+                    break;
+                
+                }case 6:{
+                    marca.setFila(1);
+                    marca.setColumna(2);
+                    break;
+                
+                }case 7:{
+                    marca.setFila(2);
+                    marca.setColumna(0);
+                    break;
+                
+                }case 8:{
+                    marca.setFila(2);
+                    marca.setColumna(1);
+                    break;
+                
+                }case 9:{
+                    marca.setFila(2);
+                    marca.setColumna(2);
+                }
+            }
+            
+            
+            return marca;
         }
     }
 }

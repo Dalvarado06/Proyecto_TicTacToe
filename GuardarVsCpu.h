@@ -8,18 +8,25 @@
  * File:   GuardarVsCpu.h
  * Author: dalva
  *
- * Created on December 20, 2020, 8:51 PM
+ * Created on December 21, 2020, 9:23 PM
  */
 
 #ifndef GUARDARVSCPU_H
 #define GUARDARVSCPU_H
 
-#include "GuardarPartida.h"
-#include "PlayerCPU.h"
 #include "JuegoCpu.h"
+#include "PlayerCPU.h"
 #include "PlayerHumano.h"
+#include <fstream>
+using std::ifstream;
+using std::ofstream;
 
-class GuardarVsCpu : public GuardarPartida{
+#include <iostream>
+using std::endl;
+
+class JuegoCpu;
+
+class GuardarVsCpu {
 public:
     
     GuardarVsCpu();
@@ -28,12 +35,13 @@ public:
     
     virtual ~GuardarVsCpu();
     
-    virtual void guardarPartidaActual(GameBoard*, Player*, Player*, int);
+    JuegoCpu* cargarPartida();
     
-    virtual Juego* cargarPartida();
-    
-private:
+    void guardarPartidaActual(GameBoard*, Player*, PlayerCPU*, int);
 
+private:
+    ofstream salvarPartida;
+    ifstream lecturaPartida;
 };
 
 #endif /* GUARDARVSCPU_H */

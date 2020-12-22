@@ -563,39 +563,23 @@ void JuegoPvP::reInitGame(){
 void JuegoPvP::refreshPlayerStats(vector<PlayerHumano*> &lista){
     
     int size = lista.size();
-    bool flag = false;
-    bool flag2 = false;
     
     for(int i = 0; i < size; i++){
         
         PlayerHumano* p = lista[i];
         
         if(p->getNombre() == jugador1->getNombre()){
-            int score = jugador1->getPuntuacion();
-            lista[i]->setPuntuacion(score);
-            flag = true;
-        }
-        
-        if(p->getNombre() == jugador2->getNombre()){
-            int score = jugador2->getPuntuacion();
-            lista[i]->setPuntuacion(score);
-            flag2 = true;
+            
+            if(p->getPuntuacion() < jugador1->getPuntuacion()){
+                int punt = jugador1->getPuntuacion();
+                p->setPuntuacion(punt);
+            }
+        }else if(p->getNombre() == jugador2->getNombre()){
+            
+            if(p->getPuntuacion() < jugador2->getPuntuacion()){
+                int punt = jugador2->getPuntuacion();
+                p->setPuntuacion(punt);
+            }
         }
     }
-    
-    
-//    if(flag == false && flag2 == false){
-//        PlayerHumano* p1 = ((PlayerHumano)jugador1);
-//        PlayerHumano* p2 = ((PlayerHumano)jugador2)
-//        lista.push_back(p1);
-//        lista.push_back(p2);
-//    
-//    }else if(flag == false && flag2 == true){
-//        PlayerHumano* p1 = ((PlayerHumano)jugador1);
-//        lista.push_back(p1);
-//    
-//    }else{
-//        PlayerHumano* p2 = ((PlayerHumano)jugador2);
-//        lista.push_back(p2);
-//    }
 }

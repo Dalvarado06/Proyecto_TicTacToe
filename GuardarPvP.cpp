@@ -49,7 +49,7 @@ void GuardarPvP::guardarPartidaActual(GameBoard* tablero, Player* jug1, Player* 
         
 }
 
-Juego* GuardarPvP::cargarPartida(){
+JuegoPvP* GuardarPvP::cargarPartida(){
     
     lecturaPartida.open("JuegoPvP.txt");
     JuegoPvP* game;

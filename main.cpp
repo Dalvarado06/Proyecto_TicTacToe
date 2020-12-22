@@ -160,7 +160,7 @@ int main(int argc, char** argv) {
 
                 } else {
 
-                    cout << "Estos son los jugadores disponibles, elija dos: "
+                    cout << "Estos son los jugadores disponibles, elija uno: "
                             << endl;
                     listarJugadores(jugadoresRegistrados);
 
@@ -216,7 +216,7 @@ int main(int argc, char** argv) {
                         {
                             cout << "Resumir ultimo PVP" << endl << endl;
 
-                            Juego* game;
+                            JuegoPvP* game;
                             GuardarPvP leerPartida;
 
                             game = leerPartida.cargarPartida();
@@ -226,7 +226,7 @@ int main(int argc, char** argv) {
                             if (game != NULL) {
 
                                 game->reInitGame();
-                                //                             (JuegoPvP(game)).refreshPlayerStats(jugadoresRegistrados);
+                                game->refreshPlayerStats(jugadoresRegistrados);
 
 
                                 delete game;
@@ -244,20 +244,25 @@ int main(int argc, char** argv) {
                         {
                             cout << "Resumir ultimo vs CPU " << endl << endl;
                             
-                            Juego* game;
+                            JuegoCpu* game;
                             GuardarVsCpu load;
                             
                             game = load.cargarPartida();
                             
                             game->reInitGame();
                             
+                            game->actualizarPuntJugador(jugadoresRegistrados);
+                            game->actualizarPuntMaquina(maquina);
                             
+                            
+                            delete game;
+                            break;
 
                         }
 
                         case 3:
                         {
-                            cout << "Saliendo al menu Principal..." << endl;
+                            cout << "Saliendo al menu Principal..." << endl << endl;
                             break;
                         }
 

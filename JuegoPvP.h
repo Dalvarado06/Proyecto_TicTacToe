@@ -41,6 +41,7 @@ public:
     //restablece puntuciones de jugadores ya existentes o los agrega a la lista
     void refreshPlayerStats(vector<PlayerHumano*>&);
     
+    
 private:
    
 };
