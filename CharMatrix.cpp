@@ -118,7 +118,7 @@ void CharMatrix::printMatrix(){
     
     for(int i = 0; i < filas; i++){
         for(int j = 0; j < columnas; j++){
-            cout << matrix[i][j] << "\t";
+            cout << "[ " << matrix[i][j] << " ] \t";
         }
         
         cout << endl;

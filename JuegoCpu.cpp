@@ -50,6 +50,9 @@ void JuegoCpu::initGame() {
         maquina->setMarca('X');
     }
 
+    numJugadas = 0;
+    bool empate = false;
+
     //inicio de la partida
     if (jugador->getMarca() == 'X') {
 
@@ -97,7 +100,10 @@ void JuegoCpu::initGame() {
             numJugadas = numJugadas + 1;
             historial.agregarJugada(tablero->getTablero());
 
+
+
             bool gano = validarGanador(jugador->getMarca());
+
 
             if (gano) {
                 cout << "El jugador " << jugador->getNombre() << " gano" << endl;
@@ -106,7 +112,12 @@ void JuegoCpu::initGame() {
                 jugador->setPuntuacion(score);
 
 
-            } else if (numJugadas < 9) {
+            } else if (numJugadas == 9) {
+
+                flag = false;
+                empate = true;
+
+            } else if (numJugadas < 9 && flag == true) {
 
 
                 cout << "-----> El tablero esta asi: " << endl << endl;
@@ -127,12 +138,16 @@ void JuegoCpu::initGame() {
                     tablero->getTablero()->setPosValueMatrix(marca.getFila()
                             , marca.getColumna(), maquina->getMarca());
                     historial.agregarJugada(tablero->getTablero());
+                    numJugadas = numJugadas + 1;
+
 
                 } else {
                     marca = maquina->atacando(board, maquina->getMarca());
                     tablero->getTablero()->setPosValueMatrix(marca.getFila(),
                             marca.getColumna(), maquina->getMarca());
                     historial.agregarJugada(tablero->getTablero());
+                    numJugadas = numJugadas + 1;
+
                 }
 
                 bool gano = validarGanador(maquina->getMarca());
@@ -158,6 +173,10 @@ void JuegoCpu::initGame() {
                 }
 
             }
+        }
+
+        if (empate) {
+            cout << "El juego ha terminado en empate! " << endl << endl;
         }
 
         cout << "Historial de jugadas " << endl << endl;
@@ -199,12 +218,16 @@ void JuegoCpu::initGame() {
                 tablero->getTablero()->setPosValueMatrix(marca.getFila()
                         , marca.getColumna(), maquina->getMarca());
                 historial.agregarJugada(tablero->getTablero());
+                numJugadas = numJugadas + 1;
+
 
             } else {
                 marca = maquina->atacando(board, maquina->getMarca());
                 tablero->getTablero()->setPosValueMatrix(marca.getFila(),
                         marca.getColumna(), maquina->getMarca());
                 historial.agregarJugada(tablero->getTablero());
+                numJugadas = numJugadas + 1;
+
             }
 
             bool gano = validarGanador(maquina->getMarca());
@@ -215,7 +238,12 @@ void JuegoCpu::initGame() {
                 int score = maquina->getPuntuacion() + 1;
                 maquina->setPuntuacion(score);
 
-            } else if (numJugadas < 9) {
+            } else if (numJugadas == 9) {
+
+                flag = false;
+                empate = true;
+
+            } else if (numJugadas < 9 && flag == true) {
 
 
                 cout << "-----> El tablero esta asi: " << endl << endl;
@@ -249,6 +277,7 @@ void JuegoCpu::initGame() {
                 numJugadas = numJugadas + 1;
                 historial.agregarJugada(tablero->getTablero());
 
+
                 bool gano = validarGanador(jugador->getMarca());
 
                 if (gano) {
@@ -276,9 +305,15 @@ void JuegoCpu::initGame() {
             }
         }
 
+        if (empate) {
+            cout << "El juego ha terminado en empate! " << endl << endl;
+        }
+
         cout << "Historial de jugadas " << endl << endl;
         historial.mostrarHistorial();
     }
+    
+    delete tablero;
 }
 
 string JuegoCpu::matrixToString(SymCharMatrix* tablero) {
@@ -297,6 +332,12 @@ string JuegoCpu::matrixToString(SymCharMatrix* tablero) {
 }
 
 void JuegoCpu::reInitGame() {
+    bool empate = false;
+
+    cout << "Bienvenidos de nuevo" << endl << endl;
+    cout << "El tablero quedo asi: " << endl;
+    tablero->getTablero()->printMatrix();
+
     //inicio de la partida
     if (jugador->getMarca() == 'X') {
 
@@ -344,7 +385,10 @@ void JuegoCpu::reInitGame() {
             numJugadas = numJugadas + 1;
             historial.agregarJugada(tablero->getTablero());
 
+
+
             bool gano = validarGanador(jugador->getMarca());
+
 
             if (gano) {
                 cout << "El jugador " << jugador->getNombre() << " gano" << endl;
@@ -353,7 +397,12 @@ void JuegoCpu::reInitGame() {
                 jugador->setPuntuacion(score);
 
 
-            } else if (numJugadas < 9) {
+            } else if (numJugadas == 9) {
+
+                flag = false;
+                empate = true;
+
+            } else if (numJugadas < 9 && flag == true) {
 
 
                 cout << "-----> El tablero esta asi: " << endl << endl;
@@ -374,12 +423,16 @@ void JuegoCpu::reInitGame() {
                     tablero->getTablero()->setPosValueMatrix(marca.getFila()
                             , marca.getColumna(), maquina->getMarca());
                     historial.agregarJugada(tablero->getTablero());
+                    numJugadas = numJugadas + 1;
+
 
                 } else {
                     marca = maquina->atacando(board, maquina->getMarca());
                     tablero->getTablero()->setPosValueMatrix(marca.getFila(),
                             marca.getColumna(), maquina->getMarca());
                     historial.agregarJugada(tablero->getTablero());
+                    numJugadas = numJugadas + 1;
+
                 }
 
                 bool gano = validarGanador(maquina->getMarca());
@@ -395,7 +448,6 @@ void JuegoCpu::reInitGame() {
                     int opcion = 0;
                     cout << "Desea salir de la partida y guardarla (1 = si): ";
                     cin >> opcion;
-                    cout << endl << endl;
 
                     if (opcion == 1) {
 
@@ -406,6 +458,10 @@ void JuegoCpu::reInitGame() {
                 }
 
             }
+        }
+
+        if (empate) {
+            cout << "El juego ha terminado en empate! " << endl << endl;
         }
 
         cout << "Historial de jugadas " << endl << endl;
@@ -447,12 +503,16 @@ void JuegoCpu::reInitGame() {
                 tablero->getTablero()->setPosValueMatrix(marca.getFila()
                         , marca.getColumna(), maquina->getMarca());
                 historial.agregarJugada(tablero->getTablero());
+                numJugadas = numJugadas + 1;
+
 
             } else {
                 marca = maquina->atacando(board, maquina->getMarca());
                 tablero->getTablero()->setPosValueMatrix(marca.getFila(),
                         marca.getColumna(), maquina->getMarca());
                 historial.agregarJugada(tablero->getTablero());
+                numJugadas = numJugadas + 1;
+
             }
 
             bool gano = validarGanador(maquina->getMarca());
@@ -463,7 +523,12 @@ void JuegoCpu::reInitGame() {
                 int score = maquina->getPuntuacion() + 1;
                 maquina->setPuntuacion(score);
 
-            } else if (numJugadas < 9) {
+            } else if (numJugadas == 9) {
+
+                flag = false;
+                empate = true;
+
+            } else if (numJugadas < 9 && flag == true) {
 
 
                 cout << "-----> El tablero esta asi: " << endl << endl;
@@ -497,6 +562,7 @@ void JuegoCpu::reInitGame() {
                 numJugadas = numJugadas + 1;
                 historial.agregarJugada(tablero->getTablero());
 
+
                 bool gano = validarGanador(jugador->getMarca());
 
                 if (gano) {
@@ -524,34 +590,39 @@ void JuegoCpu::reInitGame() {
             }
         }
 
+        if (empate) {
+            cout << "El juego ha terminado en empate! " << endl << endl;
+        }
+
         cout << "Historial de jugadas " << endl << endl;
         historial.mostrarHistorial();
-        cout << endl << endl;
     }
+    
+    delete tablero;
 }
 
-void JuegoCpu::actualizarPuntJugador(vector<PlayerHumano*> &lista){
-    
+void JuegoCpu::actualizarPuntJugador(vector<PlayerHumano*> &lista) {
+
     int size = lista.size();
-    
-    for(int i = 0; i < size; i++){
-        
+
+    for (int i = 0; i < size; i++) {
+
         PlayerHumano* p = lista[i];
-        
-        if(p->getNombre() == jugador->getNombre()){
-            
-            if(p->getPuntuacion() < jugador->getPuntuacion()){
+
+        if (p->getNombre() == jugador->getNombre()) {
+
+            if (p->getPuntuacion() < jugador->getPuntuacion()) {
                 int punt = jugador->getPuntuacion();
                 p->setPuntuacion(punt);
-                
+
             }
         }
     }
 }
 
-void JuegoCpu::actualizarPuntMaquina(PlayerCPU* &machine){
-    
-    if(maquina->getPuntuacion() > machine->getPuntuacion()){
+void JuegoCpu::actualizarPuntMaquina(PlayerCPU* &machine) {
+
+    if (maquina->getPuntuacion() > machine->getPuntuacion()) {
         int punt = maquina->getPuntuacion();
         machine->setPuntuacion(punt);
     }

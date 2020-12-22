@@ -24,8 +24,8 @@ JuegoPvP::JuegoPvP() : Juego() {
     tablero = 0;
     tablero = new GameBoard();
     numJugadas = 0;
-//    jugador1 = new PlayerHumano();
-//    jugador2 = new PlayerHumano();
+    //    jugador1 = new PlayerHumano();
+    //    jugador2 = new PlayerHumano();
 }
 
 JuegoPvP::JuegoPvP(const JuegoPvP& orig) {
@@ -43,6 +43,7 @@ void JuegoPvP::setPlayers(Player* jug1, Player* jug2) {
 void JuegoPvP::initGame() {
 
     randMark(jugador1, jugador2);
+    bool empate = false;
 
     if (jugador1->getMarca() == 'X') {
         cout << "'-----> El jugador " << jugador1->getNombre() << " juega primero"
@@ -98,7 +99,12 @@ void JuegoPvP::initGame() {
                 int score = jugador1->getPuntuacion() + 1;
                 jugador1->setPuntuacion(score);
 
-            } else if(numJugadas < 9) {
+            } else if (numJugadas == 9) {
+
+                flag = false;
+                empate = true;
+
+            } else if (numJugadas < 9) {
 
                 cout << "-----> El tablero esta asi: " << endl << endl;
                 tablero->getTablero()->printMatrix();
@@ -157,7 +163,7 @@ void JuegoPvP::initGame() {
             }
 
         }
-        if (flag == false && numJugadas == 9) {
+        if (empate) {
             cout << "-----> El juego termino en empate" << endl << endl;
         }
 
@@ -226,7 +232,12 @@ void JuegoPvP::initGame() {
                 int score = jugador2->getPuntuacion() + 1;
                 jugador2->setPuntuacion(score);
 
-            } else if(numJugadas < 9){
+            } else if (numJugadas == 9) {
+
+                flag = false;
+                empate = true;
+
+            } else if (numJugadas < 9) {
 
                 cout << "-----> El tablero esta asi: " << endl << endl;
                 tablero->getTablero()->printMatrix();
@@ -281,7 +292,7 @@ void JuegoPvP::initGame() {
             }
         }
 
-        if (flag == false && numJugadas == 9) {
+        if (empate) {
             cout << "-----> El juego termino en empate" << endl << endl;
         }
 
@@ -299,13 +310,15 @@ void JuegoPvP::initGame() {
     delete tablero;
 }
 
-void JuegoPvP::reInitGame(){
-    
+void JuegoPvP::reInitGame() {
+
     cout << "Bienvenidos de nuevo" << endl << endl;
     cout << "El tablero quedo asi: " << endl;
     tablero->getTablero()->printMatrix();
-    
-    
+
+
+    bool empate = false;
+
     if (jugador1->getMarca() == 'X') {
         cout << "'-----> El jugador " << jugador1->getNombre() << " juega primero"
                 << endl << endl;
@@ -360,7 +373,12 @@ void JuegoPvP::reInitGame(){
                 int score = jugador1->getPuntuacion() + 1;
                 jugador1->setPuntuacion(score);
 
-            } else if (numJugadas < 9){
+            } else if (numJugadas == 9) {
+
+                flag = false;
+                empate = true;
+
+            } else if (numJugadas < 9) {
 
                 cout << "-----> El tablero esta asi: " << endl << endl;
                 tablero->getTablero()->printMatrix();
@@ -419,7 +437,7 @@ void JuegoPvP::reInitGame(){
             }
 
         }
-        if (flag == false && numJugadas == 9) {
+        if (empate) {
             cout << "-----> El juego termino en empate" << endl << endl;
         }
 
@@ -488,7 +506,12 @@ void JuegoPvP::reInitGame(){
                 int score = jugador2->getPuntuacion() + 1;
                 jugador2->setPuntuacion(score);
 
-            } else if(numJugadas < 9){
+            } else if (numJugadas == 9) {
+
+                flag = false;
+                empate = true;
+
+            } else if (numJugadas < 9) {
 
                 cout << "-----> El tablero esta asi: " << endl << endl;
                 tablero->getTablero()->printMatrix();
@@ -543,7 +566,7 @@ void JuegoPvP::reInitGame(){
             }
         }
 
-        if (flag == false && numJugadas == 9) {
+        if (empate) {
             cout << "-----> El juego termino en empate" << endl << endl;
         }
 
@@ -555,28 +578,29 @@ void JuegoPvP::reInitGame(){
         if (confirm == 1) {
             historial.mostrarHistorial();
         }
-        
 
     }
+
+    delete tablero;
 }
 
-void JuegoPvP::refreshPlayerStats(vector<PlayerHumano*> &lista){
-    
+void JuegoPvP::refreshPlayerStats(vector<PlayerHumano*> &lista) {
+
     int size = lista.size();
-    
-    for(int i = 0; i < size; i++){
-        
+
+    for (int i = 0; i < size; i++) {
+
         PlayerHumano* p = lista[i];
-        
-        if(p->getNombre() == jugador1->getNombre()){
-            
-            if(p->getPuntuacion() < jugador1->getPuntuacion()){
+
+        if (p->getNombre() == jugador1->getNombre()) {
+
+            if (p->getPuntuacion() < jugador1->getPuntuacion()) {
                 int punt = jugador1->getPuntuacion();
                 p->setPuntuacion(punt);
             }
-        }else if(p->getNombre() == jugador2->getNombre()){
-            
-            if(p->getPuntuacion() < jugador2->getPuntuacion()){
+        } else if (p->getNombre() == jugador2->getNombre()) {
+
+            if (p->getPuntuacion() < jugador2->getPuntuacion()) {
                 int punt = jugador2->getPuntuacion();
                 p->setPuntuacion(punt);
             }

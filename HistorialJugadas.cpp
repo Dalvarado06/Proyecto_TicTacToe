@@ -54,7 +54,7 @@ void HistorialJugadas::mostrarHistorial() {
 
         }
     }
-    cout << "Afuera for historial" << endl << endl;
+    
 
 }
 

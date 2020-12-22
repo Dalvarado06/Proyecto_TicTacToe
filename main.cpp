@@ -32,8 +32,7 @@ using namespace std;
 int menu();
 void listarJugadores(vector<PlayerHumano*>&);
 void freeVector(vector<PlayerHumano*>&);
-//void resumirJugadorvsJugador();
-//void resumirJugadorvsCpu();
+
 
 /*
  * 
@@ -42,22 +41,6 @@ int main(int argc, char** argv) {
 
     vector<PlayerHumano*> jugadoresRegistrados;
     PlayerCPU* maquina = new PlayerCPU();
-
-
-    //    Player* jugador1 = new PlayerHumano("Daniel");
-    //    Player* maquina = new PlayerCPU();
-    //    
-    //    Juego* ticTacToe = new Juego();
-    //    
-    //    cout << jugador1->getMarca() << " " << maquina->getMarca() << endl << endl;
-    //    
-    //    ticTacToe->randMark(jugador1, maquina);
-    //    
-    //    cout << jugador1->getMarca() << " " << maquina->getMarca() << endl << endl;
-    //    
-    //    delete jugador1;
-    //    delete maquina;
-    //    delete ticTacToe;
 
     AdminJugadores adminJugadores;
     jugadoresRegistrados = adminJugadores.leerJugadores();
